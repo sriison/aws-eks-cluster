@@ -8,7 +8,10 @@
 
 resource "aws_vpc" "demo" {
   cidr_block = "10.0.0.0/16"
-
+  
+ # Used for the internal VPC DNS resolution
+  enable_dns_support   = true
+  enable_dns_hostnames = true
   tags = "${
     map(
       "Name", "terraform-eks-demo-node",
